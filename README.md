@@ -1,285 +1,107 @@
-<a name="readme-top"></a>
-
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
+OhioT1DM Glucose Prediction and Anomaly Detection
 
-Modify this file to match your project and remove sections that don't apply.
+📌 Project Overview
 
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
+This project uses LSTM models and Autoencoders to analyze glucose levels in the OhioT1DM dataset. The goal is to:
 
-After you're finished please remove all the comments and instructions!
--->
+Parse and extract glucose data from XML files.
 
-<div align="center">
+Perform data visualization and feature engineering.
 
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
+Convert glucose data into a time series format.
 
-  <h3><b>Microverse README Template</b></h3>
+Train an LSTM model for glucose prediction.
 
-</div>
+Detect glucose anomalies using Autoencoders.
 
-<!-- TABLE OF CONTENTS -->
+Deploy the model via FastAPI and Streamlit for real-time analysis.
 
-# 📗 Table of Contents
+📂 Project Description
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
-- [📝 License](#license)
+This repository contains code and resources for developing a machine learning pipeline for glucose prediction and anomaly detection using the OhioT1DM dataset. It includes data preprocessing, feature engineering, time-series modeling, and deployment scripts for real-time analysis.
 
-<!-- PROJECT DESCRIPTION -->
+📂 Dataset
 
-# 📖 [your_project_name] <a name="about-project"></a>
+OhioT1DM Dataset (contains glucose level readings in XML format)
 
-> Describe your project in 1 or 2 sentences.
+Features:
 
-**[your_project__name]** is a...
+Glucose
 
-## 🛠 Built With <a name="built-with"></a>
+Hour
 
-### Tech Stack <a name="tech-stack"></a>
+DayOfWeek
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
+Rolling_Mean
 
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
+Rolling_Std
 
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
+Glucose Scaled
 
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
+⚙️ Setup & Installation
 
-<!-- Features -->
+1️⃣ Clone the Repository
 
-### Key Features <a name="key-features"></a>
+git clone https://github.com/your-username/ohiot1dm-glucose-prediction.git
+cd ohiot1dm-glucose-prediction
 
-> Describe between 1-3 key features of the application.
+2️⃣ Create a Virtual Environment (Optional but Recommended)
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+python -m venv venv
+source venv/bin/activate   # On Windows use: venv\Scripts\activate
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+3️⃣ Install Dependencies
 
-<!-- LIVE DEMO -->
+pip install -r requirements.txt
 
-## 🚀 Live Demo <a name="live-demo"></a>
+🛠 Project Workflow
 
-> Add a link to your deployed project.
+1️⃣ Parsing XML & Extracting Data
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+Reads glucose data from XML files.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Converts data into structured Pandas DataFrame.
 
-<!-- GETTING STARTED -->
+Saves it as glucose_data.csv.
 
-## 💻 Getting Started <a name="getting-started"></a>
+2️⃣ Data Preprocessing & Feature Engineering
 
-> Describe how a new developer could make use of your project.
+Handling missing values.
 
-To get a local copy up and running, follow these steps.
+Feature scaling (MinMaxScaler).
 
-### Prerequisites
+Creating rolling statistical features (Rolling Mean, Rolling Std).
 
-In order to run this project you need:
+3️⃣ Time Series Conversion & LSTM Training
 
-<!--
-Example command:
+Converts the glucose data into time series sequences.
 
-```sh
- gem install rails
-```
- -->
+Trains an LSTM model for glucose prediction.
 
-### Setup
+Evaluates performance with loss curves & MAE.
 
-Clone this repository to your desired folder:
+4️⃣ Anomaly Detection with Autoencoders
 
-<!--
-Example commands:
+Trains an Autoencoder model to detect anomalies.
 
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
-```
---->
+Visualizes anomalous glucose readings.
 
-### Install
+🔥 Future Improvements
 
-Install this project with:
+Integrate real-time glucose sensor data.
 
-<!--
-Example command:
+Deploy API & Web App on AWS/GCP.
 
-```sh
-  cd my-project
-  gem install
-```
---->
+Improve anomaly detection using Generative Models.
 
-### Usage
+👨‍💻 Author
 
-To run the project, execute the following command:
+Your Desta Legesse Wubishet
 
-<!--
-Example command:
+Email: dlwubi@gmail.com
 
-```sh
-  rails server
-```
---->
+GitHub: dlwub
 
-### Run tests
+📜 License
 
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- AUTHORS -->
-
-## 👥 Authors <a name="authors"></a>
-
-> Mention all of the collaborators of this project.
-
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FUTURE FEATURES -->
-
-## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## 🤝 Contributing <a name="contributing"></a>
-
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](../../issues/).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- SUPPORT -->
-
-## ⭐️ Show your support <a name="support"></a>
-
-> Write a message to encourage readers to support your project
-
-If you like this project...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGEMENTS -->
-
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## 📝 License <a name="license"></a>
-
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+This project is licensed under the MIT License.
